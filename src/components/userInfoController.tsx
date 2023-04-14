@@ -1,7 +1,33 @@
+import damCalc from "../utils/damCalc";
 import makeDot from "../utils/makeDot";
+import { classInformation } from './../constants/classInfo';
+
 
 function CharInfo(props: any) {
     const charInfo = props.charInfo;
+    console.log(charInfo);
+
+    let userSkill = catchClass();
+    let test1 = charInfo.ArmorySkills.filter((i: { Level: number; }) => i.Level !== 1)
+        .map((u: { Name: string; Icon: string; Level: number; Rune: any; Tripods: any[]; }) => ({
+            Name: u.Name,
+            Icon: u.Icon,
+            Level: u.Level,
+            Rune: u.Rune,
+            Tripods: u.Tripods.filter((j: { IsSelected: boolean; }) => j.IsSelected === true),
+        }))
+
+    console.log(userSkill)
+    console.log(test1);
+    // console.log(userSkill[0].useSkillInfo?.filter(i => i.skillName === test1.map((j: { Name: string; }) => j.Name)))
+    
+
+    function catchClass() {
+        const classSkillInfo = classInformation
+            .filter(i => i.className === charInfo.ArmoryProfile.CharacterClassName);
+
+        return classSkillInfo;
+    }
 
     function CharImg() {
         return (
@@ -38,22 +64,18 @@ function CharInfo(props: any) {
         )
     }   
 
-    console.log(charInfo.ArmorySkills.filter((i: { Level: number; }) => i.Level != 1)
-        .map((u: { Name: string; Icon: string; Level: number; Rune: any; Tripods: any[]; }) => ({
-            Name: u.Name,
-            Icon: u.Icon,
-            Level: u.Level,
-            Rune: u.Rune,
-            Tripods: u.Tripods.filter((j: { IsSelected: boolean; }) => j.IsSelected == true),
-        })))
-
-
     function UserUsingSkill() {
         return (
             <div>
                 {
-                    charInfo.ArmorySkills.filter((i: { Level: number; }) => i.Level != 1)
-                        .Tripods.filter((j: { IsSelected: boolean; }) => j.IsSelected == true)
+                    charInfo.ArmorySkills.filter((i: { Level: number; }) => i.Level !== 1)
+                        .map((u: { Name: string; Icon: string; Level: number; Rune: any; Tripods: any[]; }) => ({
+                            Name: u.Name,
+                            Icon: u.Icon,
+                            Level: u.Level,
+                            Rune: u.Rune,
+                            Tripods: u.Tripods.filter((j: { IsSelected: boolean; }) => j.IsSelected === true),
+                        }))
                 }
             </div>
         )
@@ -71,8 +93,5 @@ function CharInfo(props: any) {
         </>
     )
 }
-
-
-
 
 export { CharInfo }
