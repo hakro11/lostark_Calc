@@ -1,8 +1,7 @@
 import { Link, Routes, Route, useNavigate } from 'react-router-dom';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Home from './pages/home'
-// import Char from './pages/char';
 import validateUserName from './utils/validateUserName';
 import Char from './pages/char';
 
@@ -50,8 +49,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={<Home />} />
-          {/* <Route path='/char' element={<Char />} /> */}
-            <Route path='/char' Component={Char} />
+          <Route path='/char' Component={Char} />
         </Routes>
       </main>
     </>
