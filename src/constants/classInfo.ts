@@ -1,21 +1,21 @@
 import { userInfo } from "../interface/interface";
 
 export const classInformation: userInfo[] = [
-    {
-        rootClass: "Warrior",
-        className: "워로드",
-        engraving: ["고독한기사", "전투태세"],
-    },
-    {
-        rootClass: "Warrior",
-        className: "디스트로이어",
-        engraving: ["중력수련", "분노의망치"],
-    },
-    {
-        rootClass: "Warrior",
-        className: "홀리나이트",
-        engraving: ["축복의오라", "심판자"],
-    },
+    // {
+    //     rootClass: "Warrior",
+    //     className: "워로드",
+    //     engraving: ["고독한기사", "전투태세"],
+    // },
+    // {
+    //     rootClass: "Warrior",
+    //     className: "디스트로이어",
+    //     engraving: ["중력수련", "분노의망치"],
+    // },
+    // {
+    //     rootClass: "Warrior",
+    //     className: "홀리나이트",
+    //     engraving: ["축복의오라", "심판자"],
+    // },
     {
         rootClass: "Warrior",
         className: "슬레이어",
@@ -277,41 +277,41 @@ export const classInformation: userInfo[] = [
             },
         ]
     },
-    {
-        rootClass: "Fighter",
-        className: "인파이터",
-        engraving: ["극의:체술", "충격단련"],
-    },
-    {
-        rootClass: "Fighter",
-        className: "기공사",
-        engraving: ["역천지체", "세맥타통"],
-    },
-    {
-        rootClass: "Fighter",
-        className: "창술사",
-        engraving: ["절정", "절제"],
-    },
-    {
-        rootClass: "Fighter",
-        className: "스트라이커",
-        engraving: ["일격필살", "오의난무"]
-    },
-    {
-        rootClass: "Hunter",
-        className: "데빌헌터",
-        engraving: ["강화무기", "핸드거너"],
-    },
-    {
-        rootClass: "Hunter",
-        className: "블래스터",
-        engraving: ["화력강화", "포격강화"],
-    },
-    {
-        rootClass: "Hunter",
-        className: "호크아이",
-        engraving: ["죽음의습격", "두번째동료"]
-    },
+    // {
+    //     rootClass: "Fighter",
+    //     className: "인파이터",
+    //     engraving: ["극의:체술", "충격단련"],
+    // },
+    // {
+    //     rootClass: "Fighter",
+    //     className: "기공사",
+    //     engraving: ["역천지체", "세맥타통"],
+    // },
+    // {
+    //     rootClass: "Fighter",
+    //     className: "창술사",
+    //     engraving: ["절정", "절제"],
+    // },
+    // {
+    //     rootClass: "Fighter",
+    //     className: "스트라이커",
+    //     engraving: ["일격필살", "오의난무"]
+    // },
+    // {
+    //     rootClass: "Hunter",
+    //     className: "데빌헌터",
+    //     engraving: ["강화무기", "핸드거너"],
+    // },
+    // {
+    //     rootClass: "Hunter",
+    //     className: "블래스터",
+    //     engraving: ["화력강화", "포격강화"],
+    // },
+    // {
+    //     rootClass: "Hunter",
+    //     className: "호크아이",
+    //     engraving: ["죽음의습격", "두번째동료"]
+    // },
     {
         rootClass: "Hunter",
         className: "스카우터",
@@ -597,16 +597,16 @@ export const classInformation: userInfo[] = [
             },
         ]
     },
-    {
-        rootClass: "Magician",
-        className: "서머너",
-        engraving: ["상급 소환사", "넘치는 교감"],
-    },
-    {
-        rootClass: "Magician",
-        className: "바드",
-        engraving: ["절실한 구원", "진실된 용맹"],
-    },
+    // {
+    //     rootClass: "Magician",
+    //     className: "서머너",
+    //     engraving: ["상급 소환사", "넘치는 교감"],
+    // },
+    // {
+    //     rootClass: "Magician",
+    //     className: "바드",
+    //     engraving: ["절실한 구원", "진실된 용맹"],
+    // },
     {
         rootClass: "Magician",
         className: "소서리스",
@@ -723,11 +723,11 @@ export const classInformation: userInfo[] = [
             },
         ]
     },
-    {
-        rootClass: "Assassin",
-        className: "데모닉",
-        engraving: ["완벽한 억제", "멈출 수 없는 충동"],
-    },
+    // {
+    //     rootClass: "Assassin",
+    //     className: "데모닉",
+    //     engraving: ["완벽한 억제", "멈출 수 없는 충동"],
+    // },
     {
         rootClass: "Assassin",
         className: "블레이드",
@@ -866,7 +866,7 @@ export const classInformation: userInfo[] = [
         className: "리퍼",
         engraving: ["달의 소리", "갈증"],
         specializationRatio: 0.041486486486486,
-        ultiRatio: 0.054648648648649,
+        // ultiRatio: 0.054648648648649,
         useSkillInfo: [
             {
                 skillName: "나이트메어",
@@ -978,17 +978,17 @@ export const classInformation: userInfo[] = [
             },
         ]
     },
-    {
-        rootClass: "Specialist",
-        className: "도화가",
-        engraving: ["만개", "회귀"],
-    },
+    // {
+    //     rootClass: "Specialist",
+    //     className: "도화가",
+    //     engraving: ["만개", "회귀"],
+    // },
     {
         rootClass: "Specialist",
         className: "기상술사",
         engraving: ["질풍노도", "이슬비"],
         specializationRatio: 0.071529729727973,
-        ultiRatio: 0.054648648648649,
+        // ultiRatio: 0.054648648648649,
         useSkillInfo: [
             {
                 skillName: "펼치기",

@@ -7,27 +7,31 @@ function CharInfo(props: any) {
     const charInfo = props.charInfo;
     console.log(charInfo);
 
+    /* ========= 구분선 ============== */
+        // console확인용 funtion
     let userSkill = catchClass();
-    let test1 = charInfo.ArmorySkills.filter((i: { Level: number; }) => i.Level !== 1)
-        .map((u: { Name: string; Icon: string; Level: number; Rune: any; Tripods: any[]; }) => ({
-            Name: u.Name,
-            Icon: u.Icon,
-            Level: u.Level,
-            Rune: u.Rune,
-            Tripods: u.Tripods.filter((j: { IsSelected: boolean; }) => j.IsSelected === true),
-        }))
-
-    console.log(userSkill)
-    console.log(test1);
-    // console.log(userSkill[0].useSkillInfo?.filter(i => i.skillName === test1.map((j: { Name: string; }) => j.Name)))
-    
-
+    console.log(userSkill);
     function catchClass() {
-        const classSkillInfo = classInformation
-            .filter(i => i.className === charInfo.ArmoryProfile.CharacterClassName);
+        let filtering = charInfo.ArmorySkills.filter((i: { Level: number; }) => i.Level !== 1)
+            .map((u: { Name: string; Icon: string; Level: number; Rune: any; Tripods: any[]; }) => ({
+                Name: u.Name,
+                Icon: u.Icon,
+                Level: u.Level,
+                Rune: u.Rune,
+                Tripods: u.Tripods.filter((j: { IsSelected: boolean; }) => j.IsSelected === true),
+            }))
+
+            console.log(filtering)
+
+        let classSkillInfo = classInformation
+            .filter(i => i.className === charInfo.ArmoryProfile.CharacterClassName)[0]
+            .useSkillInfo.filter(skill =>
+                filtering.some((obj: { Name: string; }) => obj.Name === skill.skillName)
+            )
 
         return classSkillInfo;
     }
+    /* ========= 구분선 ============== */
 
     function CharImg() {
         return (
@@ -62,25 +66,26 @@ function CharInfo(props: any) {
                     })}
             </>
         )
-    }   
-
-    function UserUsingSkill() {
-        return (
-            <div>
-                {
-                    charInfo.ArmorySkills.filter((i: { Level: number; }) => i.Level !== 1)
-                        .map((u: { Name: string; Icon: string; Level: number; Rune: any; Tripods: any[]; }) => ({
-                            Name: u.Name,
-                            Icon: u.Icon,
-                            Level: u.Level,
-                            Rune: u.Rune,
-                            Tripods: u.Tripods.filter((j: { IsSelected: boolean; }) => j.IsSelected === true),
-                        }))
-                }
-            </div>
-        )
     }
 
+    // function UserUsingSkill() {
+    //     return (
+    //         <div>
+    //             {
+    //                 charInfo.ArmorySkills.filter((i: { Level: number; }) => i.Level !== 1)
+    //                     .map((u: { Name: string; Icon: string; Level: number; Rune: any; Tripods: any[]; }) => ({
+    //                         Name: u.Name,
+    //                         Icon: u.Icon,
+    //                         Level: u.Level,
+    //                         Rune: u.Rune,
+    //                         Tripods: u.Tripods.filter((j: { IsSelected: boolean; }) => j.IsSelected === true),
+    //                     }))
+    //             }
+    //         </div>
+    //     )
+    // }
+
+    damCalc(charInfo);
 
     return (
         <>
