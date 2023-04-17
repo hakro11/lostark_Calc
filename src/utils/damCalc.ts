@@ -1,34 +1,39 @@
-import { ArmorySkills, SkillInfo, Tripods } from './../interface/interface';
+import { ArmorySkills, SkillInfo } from './../interface/interface';
 import { classInformation } from './../constants/classInfo';
 
 export default function damCalc(charInfo: any) {
-    const userSkill: SkillInfo[] = filterUsingSkill();
-    const attackDam: number = catchAttackDam();
-    const t1: number[] = totalDam();
+    const userUsingSkillRatio: SkillInfo[] = filterSkillRatio();
+    const userUsingSkillInfo: ArmorySkills[] = filterUsingSkill();
+    // const attackDam: number = catchAttackDam();
+    // const t1: number[] = totalDam();
 
-    function totalDam(): number[] {
-        return userSkill.map(i => attackDam * (i.skillRatio) + (i.skillBasic))
-    }
+    // function totalDam(): number[] {
+    //     return userUsingSkillRatio.map(i => attackDam * (i.skillRatio) + (i.skillBasic))
+    // }
 
-    function filterUsingSkill(): SkillInfo[] {
+    function filterUsingSkill(): ArmorySkills[] {
         let filtering: ArmorySkills[] = charInfo.ArmorySkills.filter((i: { Level: number; }) => i.Level !== 1)
-            .map((u: { Name: string; Icon: string; Level: number; Rune: string; Tripods: Tripods[]; }) => ({
-                Name: u.Name,
-                Icon: u.Icon,
-                Level: u.Level,
-                Rune: u.Rune,
-                Tripods: u.Tripods.filter((j: { IsSelected: boolean; }) => j.IsSelected === true),
-            }))
-
+        .map((u : ArmorySkills) => ({
+            Icon: u.Icon,
+            IsAwakening: u.IsAwakening,
+            Name: u.Name,
+            Level: u.Level,
+            Rune: u.Rune,
+            ToolTip : u.Tooltip,
+            Type : u.Type,
+            Tripods: u.Tripods.filter((j) => j.IsSelected === true),
+        }))
         // console.log(filtering)
-
+        return filtering;
+    }
+    
+    function filterSkillRatio() :SkillInfo[]{
+        const filtering = filterUsingSkill();
         let classSkillInfo: SkillInfo[] = classInformation
-            .filter(i => i.className === charInfo.ArmoryProfile.CharacterClassName)[0]
-            .useSkillInfo.filter(skill => { filtering.some((obj) => obj.Name === skill.skillName) }
-            )
-
+        .filter(i => i.className === charInfo.ArmoryProfile.CharacterClassName)[0]
+        .useSkillInfo.filter(skill => filtering.some((obj) => obj.Name === skill.skillName)
+        )
         // console.log(classSkillInfo)
-
         return classSkillInfo;
     }
 

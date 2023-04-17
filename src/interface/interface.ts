@@ -186,7 +186,7 @@ export interface userInfo {
     className: string
     engraving: string[]
     specializationRatio?: number
-    // ultiRatio?: 0.054648648648649
+    ultiRatio?: 0.054648648648649
     useSkillInfo: SkillInfo[]
 }
 
@@ -297,6 +297,7 @@ interface ProfileTendencies {
 }
 
 export interface ArmorySkills {
+    filter(arg0: (i: { Level: number }) => boolean): unknown
     Icon: string
     IsAwakening: boolean
     Level: number
@@ -324,3 +325,11 @@ export interface Tripods {
     Tooltip: string
 }
 
+export interface charInfo {
+    ArmoryCard: ArmoryCard,
+    ArmoryEngraving: ArmoryEngraving,
+    ArmoryEquipment: ArmoryEquipment[],
+    ArmoryGem: ArmoryGem,
+    ArmoryProfile: ArmoryProfile,
+    ArmorySkills: ArmorySkills[],
+}

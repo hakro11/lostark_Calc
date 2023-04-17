@@ -1,4 +1,4 @@
-import { ProfileStats } from "../interface/interface";   // console 확인 후 삭제 필요
+import { ProfileStats } from "../interface/interface";
 import damCalc from "../utils/damCalc";
 import makeDot from "../utils/makeDot";
 
