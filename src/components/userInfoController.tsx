@@ -1,3 +1,4 @@
+import { ArmorySkills, SkillInfo, ProfileStats } from "../interface/interface";   // console 확인 후 삭제 필요
 import damCalc from "../utils/damCalc";
 import makeDot from "../utils/makeDot";
 import { classInformation } from './../constants/classInfo';
@@ -5,32 +6,40 @@ import { classInformation } from './../constants/classInfo';
 
 function CharInfo(props: any) {
     const charInfo = props.charInfo;
-    console.log(charInfo);
+    // console.log(charInfo);
+    damCalc(charInfo);
 
+    
     /* ========= 구분선 ============== */
-        // console확인용 funtion
-    let userSkill = catchClass();
-    console.log(userSkill);
-    function catchClass() {
-        let filtering = charInfo.ArmorySkills.filter((i: { Level: number; }) => i.Level !== 1)
-            .map((u: { Name: string; Icon: string; Level: number; Rune: any; Tripods: any[]; }) => ({
-                Name: u.Name,
+    // console확인용 funtion
+    // console.log(filterSkillRatio());
+    // console.log(filterUsingSkill());
+    function filterUsingSkill(): ArmorySkills[] {
+        let filtering: ArmorySkills[] = charInfo.ArmorySkills.filter((i: { Level: number; }) => i.Level !== 1)
+            .map((u: ArmorySkills) => ({
                 Icon: u.Icon,
+                IsAwakening: u.IsAwakening,
+                Name: u.Name,
                 Level: u.Level,
                 Rune: u.Rune,
-                Tripods: u.Tripods.filter((j: { IsSelected: boolean; }) => j.IsSelected === true),
+                ToolTip: u.Tooltip,
+                Type: u.Type,
+                Tripods: u.Tripods.filter(j => j.IsSelected === true),
             }))
+        // console.log(filtering)
+        return filtering;
+    }
 
-            console.log(filtering)
-
-        let classSkillInfo = classInformation
+    function filterSkillRatio(): SkillInfo[] {
+        const filtering = filterUsingSkill();
+        let classSkillInfo: SkillInfo[] = classInformation
             .filter(i => i.className === charInfo.ArmoryProfile.CharacterClassName)[0]
-            .useSkillInfo.filter(skill =>
-                filtering.some((obj: { Name: string; }) => obj.Name === skill.skillName)
+            .useSkillInfo.filter(skill => filtering.some((obj) => obj.Name === skill.skillName)
             )
-
+        // console.log(classSkillInfo)
         return classSkillInfo;
     }
+
     /* ========= 구분선 ============== */
 
     function CharImg() {
@@ -55,37 +64,19 @@ function CharInfo(props: any) {
     function UserStats() {
         return (
             <>
-                {charInfo.ArmoryProfile
-                    .Stats.map((i: {
-                        Tooltip: string; Type: string; Value: number;
-                    }) => {
-                        return <div
-                            title={i.Tooltip[0]}>
-                            {i.Type + " : " + makeDot(i.Value)}
-                        </div>;
-                    })}
+                {
+                    charInfo.ArmoryProfile.Stats
+                        .map((i: ProfileStats, index: number) => {
+                            return <div
+                                title={i.Tooltip[0]}
+                                key={index}>
+                                {i.Type + " : " + makeDot(parseInt(i.Value))}
+                            </div>;
+                        })
+                }
             </>
         )
     }
-
-    // function UserUsingSkill() {
-    //     return (
-    //         <div>
-    //             {
-    //                 charInfo.ArmorySkills.filter((i: { Level: number; }) => i.Level !== 1)
-    //                     .map((u: { Name: string; Icon: string; Level: number; Rune: any; Tripods: any[]; }) => ({
-    //                         Name: u.Name,
-    //                         Icon: u.Icon,
-    //                         Level: u.Level,
-    //                         Rune: u.Rune,
-    //                         Tripods: u.Tripods.filter((j: { IsSelected: boolean; }) => j.IsSelected === true),
-    //                     }))
-    //             }
-    //         </div>
-    //     )
-    // }
-
-    damCalc(charInfo);
 
     return (
         <>

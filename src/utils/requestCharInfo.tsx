@@ -1,5 +1,4 @@
 export default function requestUserInfo(user: string | null, setCharInfo: any) {
-        
     const charInfo = new XMLHttpRequest(); // 캐릭터 정보
 
     charInfo.open(
