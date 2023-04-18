@@ -161,8 +161,3 @@ export interface Equipment {
     OptionName : "지배" | "배신" | "갈망" | "파괴" | "매혹" | "사멸" | "악몽" | "환각" | "구원"
     Active: 0 | 1 | 2 | 3 | 4 | 5 | 6
 }
-
-export interface EquipmentSetOption {
-    OptionName: "지배" | "배신" | "갈망" | "파괴" | "매혹" | "사멸" | "악몽" | "환각" | "구원"
-    setEffect : number[]
-}

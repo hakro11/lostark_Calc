@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { CatchUserName } from "../utils/catchUserName";
 import requestCharInfo from "../utils/requestCharInfo";
 import { CharInfo } from "../components/userInfoController";
-import '../styles/user.css';
+import '../styles/char.css';
 
 
 

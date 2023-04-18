@@ -1,6 +1,5 @@
-import { EquipmentSetOption } from "../interface/interface";
-
-export const equipmentSetOption: EquipmentSetOption[] = [
+/* 안쓰는 const 추후 관리 필요 */
+export const equipmentSetEffect = [
     {
         OptionName: "지배",
         setEffect: [ 1.1 , 1.31 , 1.2 ]

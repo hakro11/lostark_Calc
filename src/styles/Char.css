@@ -1,0 +1,15 @@
+.skillImg {
+    width: 50px;
+    height: 50px;
+    margin: .1rem;
+}
+
+.userImg {
+    width: 200px;
+    height: 250px;
+}
+
+.info {
+    display: flex;
+    gap: 1rem;
+}
