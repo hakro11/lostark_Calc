@@ -30,11 +30,6 @@ export function CharInfo(props: any) {
     }
 
     function UserStats() {
-        // let Tooltip: string[] = []
-        // for (let i = 0; i < charInfo.ArmoryProfile.Stats.length; i++) {
-        //     Tooltip[i] = charInfo.ArmoryProfile.Stats[i].Tooltip[0].match(/[가-힣]+[\s][가-힣]+/)
-        //     // console.log(Tooltip[i])
-        // }
         return (
             <>
                 {
