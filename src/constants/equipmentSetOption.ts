@@ -1,3 +1,5 @@
+import { Equipment } from "../interface/interface";
+
 /* 안쓰는 const 추후 관리 필요 */
 export const equipmentSetEffect = [
     {
@@ -37,3 +39,42 @@ export const equipmentSetEffect = [
         setEffect: [0.21, 0.42, 0.63]
     },
 ]
+
+export const activeEquipmentOption: Equipment[] = [
+    {
+        OptionName: "지배",
+        Active: 0
+    },
+    {
+        OptionName: "배신",
+        Active: 0
+    },
+    {
+        OptionName: "갈망",
+        Active: 0
+    },
+    {
+        OptionName: "파괴",
+        Active: 0
+    },
+    {
+        OptionName: "매혹",
+        Active: 0
+    },
+    {
+        OptionName: "사멸",
+        Active: 0
+    },
+    {
+        OptionName: "악몽",
+        Active: 0
+    },
+    {
+        OptionName: "환각",
+        Active: 0
+    },
+    {
+        OptionName: "구원",
+        Active: 0
+    },
+];
