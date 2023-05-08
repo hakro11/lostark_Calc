@@ -1,4 +1,4 @@
-import { ArmorySkills, SkillInfo, Equipment } from '../interface/interface';
+import { ArmorySkills, SkillInfo, Equipment, Tripods } from '../interface/interface';
 import { classInformation } from '../constants/classInfo';
 import { activeEquipmentOption } from '../constants/equipmentSetOption';
 import { ENGRAVING } from '../constants/engraving';
@@ -11,12 +11,11 @@ export default function DamCalc(charInfo: any) {
     let 피해증가: number = 1;
     let 치명타피해: number = 2;
     let 공격력증가: number = 1;
-    let 방어력감소: number = 6500;
+    let 방어력감소: number = 6500 * (1 - 12 / 100);
     const attackDam: number = catchAttackDam();
 
     calcEquipmentEffect();  // 장비 셋트효과 계산
     calcEngravingEffect();  // 각인 효과 계산
-    console.log(optionDam());
 
     /* 옵션 대미지 계산 */
     function optionDam(): number {
@@ -141,6 +140,19 @@ export default function DamCalc(charInfo: any) {
         return classSkillInfo;
 
     }   // filterSkillRatio
+
+    function filterTripods(){
+        let 스킬피해증가: number = 1;
+        let 스킬치명타피해: number = 치명타피해;
+        let 스킬방어력감소: number = 방어력감소;
+
+        const selectedTripods = userUsingSkillInfo.map((c) => c.Tripods.map(cn => cn.Tooltip))
+
+        return selectedTripods;
+    }
+
+    console.log(userUsingSkillInfo)
+    console.log(filterTripods());
 
     /* 유저 사용 각인 필터 후 옵션 효과 계산*/
     function calcEngravingEffect() {

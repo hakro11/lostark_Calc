@@ -7,6 +7,15 @@ export interface userInfo {
     useSkillInfo: SkillInfo[]
 }
 
+export interface charInfo{
+    ArmoryCard: ArmoryCard
+    ArmoryEngraving: ArmoryEngraving
+    ArmoryEquipment: ArmoryEquipment[]
+    ArmoryGem: ArmoryGem
+    ArmoryProfile: ArmoryProfile
+    ArmorySkills: ArmorySkills[]
+}
+
 export interface SkillInfo {
     skillName: string
     skillType: string
@@ -120,7 +129,6 @@ interface ProfileTendencies {
 }
 
 export interface ArmorySkills {
-    filter(arg0: (i: { Level: number }) => boolean): unknown
     Icon: string
     IsAwakening: boolean
     Level: number
