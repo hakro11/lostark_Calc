@@ -4,8 +4,8 @@ import makeDot from "../utils/makeDot";
 
 export function CharInfo(props: any) {
     const charInfo = props.charInfo;
-    console.log(charInfo);
-    damCalc(charInfo);
+    // console.log(charInfo);
+    // damCalc(charInfo);
 
     /* ============== 구분선 ============== */
     /*        console 확인용 funtion        */

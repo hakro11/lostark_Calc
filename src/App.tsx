@@ -7,7 +7,6 @@ import Char from './pages/char';
 
 function App() {
   const [nameValue, setnameValue] = useState('');
-
   return (
     <>
       <Router>
@@ -33,7 +32,6 @@ function App() {
                 <span><i className="fa-solid fa-magnifying-glass"></i></span>
               </button>
             </Link>
-
           </div>
         </header>
 

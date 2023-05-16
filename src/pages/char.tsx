@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { CatchUserName } from "../utils/catchUserName";
 import requestCharInfo from "../utils/requestCharInfo";
 import { CharInfo } from "../components/userInfoController";
-import '../styles/char.css';
+import '../styles/Char.css';
 
 
 
 export default function Char() {
-    const user: string | null = CatchUserName();
+    const user: string = CatchUserName();
     const [charInfo, setCharInfo] = useState(null);
 
     useEffect(() => {
