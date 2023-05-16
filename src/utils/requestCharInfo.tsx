@@ -17,7 +17,6 @@ export default function requestUserInfo(user: string | null, setCharInfo: any) {
         if (this.status === 200 && this.readyState === this.DONE) {
             if (charInfo.response !== "null") {
                 setCharInfo(JSON.parse(charInfo.response));
-                // console.log(JSON.parse(charInfo.response))
             }
         }
     }

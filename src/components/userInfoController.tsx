@@ -4,8 +4,6 @@ import makeDot from "../utils/makeDot";
 
 export function CharInfo(props: any) {
     const charInfo = props.charInfo;
-    // console.log(charInfo);
-    // damCalc(charInfo);
 
     /* ============== 구분선 ============== */
     /*        console 확인용 funtion        */
@@ -38,7 +36,6 @@ export function CharInfo(props: any) {
                     charInfo.ArmoryProfile.Stats
                         .map((i: ProfileStats, index: number) => {
                             return <div
-                                // title={i.Tooltip[0].match(/[^a-zA-Z]/)}
                                 key={index}>
                                 {i.Type + " : " + makeDot(parseInt(i.Value))}
                             </div>;
