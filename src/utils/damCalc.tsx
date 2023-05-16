@@ -151,9 +151,6 @@ export default function DamCalc(charInfo: any) {
         return selectedTripods;
     }
 
-    console.log(userUsingSkillInfo)
-    console.log(filterTripods());
-
     /* 유저 사용 각인 필터 후 옵션 효과 계산*/
     function calcEngravingEffect() {
         const filterEngraving: { EngravingName: string; EngravingLevel: number }[] = charInfo.ArmoryEngraving.Effects.map((i: { Name: string }) => ({
@@ -171,21 +168,15 @@ export default function DamCalc(charInfo: any) {
                     break;
 
                 case "결투의 대가": case "기습의 대가": case "달인의 저력": case "돌격대장": case "마나 효율 증가": case "바리케이드": case "부러진 뼈": case "속전속결": case "슈퍼 차지": case "시선 집중": case "안정된 상태": case "약자 무시": case "원한": case "추진력": case "타격의 대가": case "갈증": case "달의 소리":
-                    // console.log(`${i.EngravingName}의 효과로 피해증가(${피해증가})효과가 ${i.EngravingEffect[idx]}배만큼 증가함`)
                     피해증가 *= i.EngravingEffect[idx];
-                    // console.log(`현재 피해증가 수치는 ${피해증가}`)
                     break;
 
                 case "아드레날린": case "에테르 포식자": case "저주받은 인형": case "질량 증가": case "공격력 감소":
-                    // console.log(`${i.EngravingName}의 효과로 공격력증가(${공격력증가})효과가 ${i.EngravingEffect[idx]}만큼 증가함`)
                     공격력증가 += i.EngravingEffect[idx];
-                    // console.log(`현재 공격력증가 수치는 ${공격력증가}`)
                     break;
 
                 case "예리한 둔기": case "정밀 단도":
-                    // console.log(`${i.EngravingName}의 효과로 치명타피해(${치명타피해})효과가 ${i.EngravingEffect[idx]}만큼 증가함`)
                     치명타피해 += i.EngravingEffect[idx];
-                    // console.log(`현재 치명타피해 수치는 ${치명타피해}`)
                     break;
 
                 default:

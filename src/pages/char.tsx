@@ -16,10 +16,6 @@ export default function Char() {
         }
     }, [user]);
 
-    // console.log(charInfo)
-
-
-
     return (
         <>
             <div>캐릭명 : {user} </div>
